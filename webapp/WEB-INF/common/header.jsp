@@ -19,17 +19,17 @@ function logout() {
 	alert("로그아웃 되었습니다");
 }
 </script>
-
-
-
 <style>
-
 .header {
 	font-size: 50px;
 	
 }
-
-
+.mainLogo{
+    background: url(resources/img/logo.png) no-repeat center top;
+    background-size: contain;
+    width: 10%;
+    height: 75%;
+}
 .hmain-menu {
 	border: 1px solid #000e98;
 	width: 100%;
@@ -37,7 +37,6 @@ function logout() {
 	background: #000e98;
 	
 }
-
 .hmain-menu .ha {
 text-decoration: none;
 color:white;
@@ -51,7 +50,6 @@ color:white;
 	color:red;
 	text-decoration: none;
 }
-
 .hmainright{
 	float:right;
 	margin:10px;
@@ -66,22 +64,15 @@ color:white;
 	float: left;
 	
 }
-
-
 .hmain-login {
 	margin:10px;
 	float:right;
-
 }
-
-
-
-
 .drop {
 	position: relative;
 	display: inline-block;
 	float: right;
-	margin: 20px;
+    margin: 10px;
 }
 .drop-content {
   display: none;
@@ -104,16 +95,13 @@ color:white;
 .drop:hover .drop span {
   background-color: #3e8e41;
 }
-
-
-
 </style>
 
 
 
 
 <header class="hmain-menu">
-		<a href="main.jsp" class="hmain ha">호텔로고자리</a> 
+		<a href="main.jsp" class="hmain ha mainLogo"></a> 
 		<c:if test="${sessionScope.loginfo == null }">
 			<a class="hmain-login ha" href="register.mem" >회원가입</a>
 			<a href="#" onclick="login()" class="hmain-login ha">로그인</a>
@@ -132,7 +120,7 @@ color:white;
 		
 		</c:if>
 	
-		<a class="hmainright ha" href="selMain.sel">판매자</a>
-		<a class="hmainright ha" href="#">고객센터</a>
+		<a class="hmainright ha" href="selMain.sel" target="_blank">판매자</a>
+		<a class="hmainright ha" href="insertQa.ad">고객센터</a>
 	
 </header>
