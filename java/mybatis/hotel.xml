@@ -4,11 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="hotel.model.Hotel">
   	<insert id="insertHotel" parameterType="MyHotel">
-		insert into hotel
+		insert into hotel (h_num, s_num, h_name, h_nation, h_address1, h_address2, h_type, h_phone,
+		h_room_num, h_facilities, h_internet, h_animal, h_parking, h_smoke, h_language,
+		h_image, h_hotel_url, h_comment, h_grade, h_postcode)
 		values(hotel_seq.nextval,#{s_num},#{h_name},#{h_nation},#{h_address1},
 		#{h_address2},#{h_type},#{h_phone},#{h_room_num},#{h_facilities},#{h_internet},
 		#{h_animal},#{h_parking},#{h_smoke},#{h_language},#{h_image},
-		#{h_hotel_url},#{h_comment},#{h_grade})  
+		#{h_hotel_url},#{h_comment},#{h_grade},#{h_postcode})  
 		<selectKey keyProperty="h_num" resultType="int" order="AFTER">
 			select hotel_seq.currval from dual
 		</selectKey>
@@ -18,7 +20,7 @@
 	<select id="getHotelList" resultType="MyHotel">
 		select * from hotel
 		<if test="area!=null and !area.equals('')">
-			where h_address1 like #{area}
+			where h_address1 like '%' || #{area} || '%'
 			<if test="filterType!=null and !filterType.equals('')">
 				and
 				<foreach collection="filters" item="item" separator="or"  >

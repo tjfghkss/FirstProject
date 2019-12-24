@@ -19,15 +19,12 @@ public class MemberInfoController {
 	private final String command2 = "update.mem";
 	private final String command3 = "delete.mem";
 	private final String command4 = "deleteConfirm.mem";
-	private final String command5 = "findPw.mem";
-	private final String getPage = "memberInfoForm2";
+	private final String getPage = "memberInfoForm";
 	private final String getPage2 = "memberDeleteForm";
-	private final String getPage3 = "findPwForm";
 	private final String goPage = "redirect:/main.jsp";
 	
 	@Autowired
 	private MemberDao memDao;
-	
 	
 	@RequestMapping(command)
 	public String info(
@@ -103,10 +100,5 @@ public class MemberInfoController {
 		} else {
 			return error;
 		}
-	}
-	
-	@RequestMapping(command5)
-	public String findPw() {
-		return getPage3;
 	}
 }

@@ -5,8 +5,8 @@
   <mapper namespace="order.model.MainOrder">
   	
   	<insert id="insertOrders">
-  		insert into mainorder (o_num, m_num, o_orderdate, o_checkin, o_checkout, o_totalpeople, o_comment, o_checker, o_engname)
-  		values(o_seq.nextval,#{m_num }, sysdate, #{o_checkin }, #{o_checkout }, #{o_totalpeople  }, #{o_comment },0,#{o_engname  })
+  		insert into mainorder
+  		values(o_seq.nextval,#{m_num }, sysdate, #{o_checkin }, #{o_checkout }, #{o_totalpeople  }, #{o_comment },0,#{o_engname  },0)
   	
   	</insert>
   	
@@ -24,10 +24,30 @@
   	
   	</select>
   	
+  	<update id="updateChecker">
+  	update mainorder
+  	set o_checker = 1
+  	where o_num = #{onum}
+  	</update>
+  	
+  	
+  		<delete id="deleteMOrder">
+  		delete from mainorder
+  		where o_num=#{o_num}
+  	</delete>
+  	
+  	<select id="getAllOrders" resultType="MyMainOrder">
+  		select * from mainorder
+		where o_checkin = #{o_checkin} and o_num = #{o_num}
+  	
+  	</select>
+  	
   	<update id="checkReview">
   		update mainorder set o_reviewchecker = 1
   		where o_num=${o_num}
   	</update>
+  	
+  
   
   
   </mapper>

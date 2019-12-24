@@ -11,9 +11,9 @@ public class Paging {
 	private int pageCount = 3 ; // 한 화면에 보여줄 페이지 링크 수 
 	private int beginPage = 0 ; //페이징 처리 시작 페이지 번호
 	private int endPage = 0 ; //페이징 처리 끝 페이지 번호
-	private int offset = 0 ;
-	private int limit = 0 ;
-	private String url = "" ; 
+	private int offset = 0 ; // 건너뛰어야할 레코드 갯수
+	private int limit = 0 ;	//=pageSize
+	private String url = "" ; // ex/list.ab
 	private String pagingHtml = "";//하단의 숫자 페이지 링크
 	
 	
@@ -192,7 +192,7 @@ public class Paging {
 		this.pageNumber = Integer.parseInt( _pageNumber ) ; 
 
 		if( _pageSize == null || _pageSize.equals("null") || _pageSize.equals("") ){
-			_pageSize = "3" ; // 한 페이지에 보여줄 레코드 갯수
+			_pageSize = "7" ; // 한 페이지에 보여줄 레코드 갯수
 		}		
 		this.pageSize = Integer.parseInt( _pageSize ) ;
 		
@@ -200,10 +200,7 @@ public class Paging {
 
 		this.totalCount = totalCount ; 
 
-		this.totalPage = (int)Math.ceil((double)this.totalCount / this.pageSize);
-		//ceil()올림 메소드
-		//floor() 버림 메소드
-		//round() 반올림 메소드
+		this.totalPage = (int)Math.ceil((double)this.totalCount / this.pageSize) ;
 		
 		this.beginRow = ( this.pageNumber - 1 )  * this.pageSize  + 1 ;
 		this.endRow =  this.pageNumber * this.pageSize ;
@@ -215,7 +212,7 @@ public class Paging {
 		this.offset = ( pageNumber - 1 ) * pageSize ; 
 		//(2-1) * 2 =>2
 		//(5-1) * 2 =>8
-		//어떤 페이지를 눌렀을때 앞에 몇개의 레코드를 건너뛰고 나오는지에 대한 값
+		
 		
 		if( this.endRow > this.totalCount ){
 			this.endRow = this.totalCount  ;
@@ -286,4 +283,3 @@ public class Paging {
 	}	
 	
 }
-

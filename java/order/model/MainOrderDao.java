@@ -5,26 +5,13 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
-import hotel.model.Hotel;
 import member.model.Member;
-import seller.model.Seller;
 
-//@Component("myMainOrderDao")
-//@Repository
-@Component
+@Component("myMainOrderDao")
 public class MainOrderDao {
 	private String namespace = "order.model.MainOrder";
 	
-	
-	public MainOrderDao() {
-		System.out.println("===============ccccc=============");
-		System.out.println("===============ccccc=============");
-		System.out.println("===============ccccc=============");
-		System.out.println("===============ccccc=============");
-		System.out.println("===============ccccc=============");
-	}
 	
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -71,10 +58,29 @@ public class MainOrderDao {
 	}
 
 
+	public MainOrder getAllOrders( int o_num, String o_checkin) {
+		// TODO Auto-generated method stub
+		MainOrder mooo = new MainOrder();
+		mooo.setO_num(o_num);
+		mooo.setO_checkin(o_checkin);
+		
+		MainOrder cnt = sqlSessionTemplate.selectOne(namespace+".getAllOrders",mooo);
+		return cnt;
+	}
+
+
 	public void checkReview(MainOrder mainorder) {
 		sqlSessionTemplate.update(namespace+ ".checkReview", mainorder);
 		
 	}
+
+
+	
+
+
+	
+
+	
 
 
 	

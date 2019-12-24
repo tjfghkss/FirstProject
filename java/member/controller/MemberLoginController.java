@@ -17,7 +17,7 @@ import member.model.MemberDao;
 @Controller
 public class MemberLoginController {
 	private final String command = "/login.mem";
-	private final String getPage = "memberLoginForm2";
+	private final String getPage = "memberLoginForm";
 	private final String goPage = "redirect:/main.jsp";
 	private final String adPage = "redirect:/main.ad";
 	
@@ -43,7 +43,7 @@ public class MemberLoginController {
 			mav.setViewName(getPage);
 			return mav;
 			
-		} else if (login.getM_email().equals("admin@admin.com")) {
+		} else if (login.getM_email().equals("admin@admin")) {
 			session.setAttribute("loginfo", login);
 			mav.setViewName(adPage);
 			

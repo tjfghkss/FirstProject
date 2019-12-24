@@ -16,7 +16,7 @@ import member.model.MemberDao;
 @Controller
 public class MemberRegisterController {
 	private final String command = "register.mem";
-	private final String getPage = "memberRegisterForm2";
+	private final String getPage = "memberRegisterForm";
 	private final String goPage = "redirect:/main.jsp";
 	
 	@Autowired

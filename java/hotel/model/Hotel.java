@@ -1,5 +1,6 @@
 package hotel.model;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -8,6 +9,7 @@ public class Hotel {
 	private int s_num;
 	private String h_name;
 	private String h_nation;
+	private String h_postcode;
 	private String h_address1;
 	private String h_address2;
 	private String h_type;
@@ -27,6 +29,16 @@ public class Hotel {
 	private List<Room> rooms;
 	
 	
+	public String getH_postcode() {
+		return h_postcode;
+	}
+
+
+	public void setH_postcode(String h_postcode) {
+		this.h_postcode = h_postcode;
+	}
+
+
 	public Hotel() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -177,6 +189,18 @@ public class Hotel {
 
 	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Hotel [h_num=" + h_num + ", s_num=" + s_num + ", h_name=" + h_name + ", h_nation=" + h_nation
+				+ ", h_postcode=" + h_postcode + ", h_address1=" + h_address1 + ", h_address2=" + h_address2
+				+ ", h_type=" + h_type + ", h_grade=" + h_grade + ", h_phone=" + h_phone + ", h_facilities="
+				+ h_facilities + ", h_internet=" + h_internet + ", h_animal=" + h_animal + ", h_parking=" + h_parking
+				+ ", h_smoke=" + h_smoke + ", h_language=" + h_language + ", h_hotel_url=" + h_hotel_url + ", h_image="
+				+ h_image + ", h_comment=" + h_comment + ", h_room_num=" + h_room_num + ", images="
+				+ Arrays.toString(images) + ", rooms=" + rooms + "]";
 	}
 	
 	

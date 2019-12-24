@@ -5,6 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class MemberDao {
@@ -37,6 +38,12 @@ public class MemberDao {
 		sqlSessionTemplate.update(namespace + ".update", member);
 	}
 
+	public List<Member> getAllMembers() {
+		// TODO Auto-generated method stub
+		List<Member> mem = sqlSessionTemplate.selectList(namespace +".getAllMembers");
+		return mem;
+	}
+	
 	public Member checkMail(String m_email) {
 		Member check = sqlSessionTemplate.selectOne(namespace + ".checkMail", m_email);
 		
@@ -46,12 +53,6 @@ public class MemberDao {
 	public void updatePw(Member member) {
 		sqlSessionTemplate.update(namespace + ".updatePw", member);
 		
-	}
-	
-	public List<Member> getAllMembers() {
-		// TODO Auto-generated method stub
-		List<Member> mem = sqlSessionTemplate.selectList(namespace +".getAllMembers");
-		return mem;
 	}
 
 }

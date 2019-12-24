@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import hotel.model.Search;
+
 @Component("myOrderDetailDao")
 public class OrderDetailDao {
 	private String namespace= "order.model.OrderDetail";
@@ -37,6 +39,34 @@ public class OrderDetailDao {
 	
 	public void deleteODetail(int o_num) {
 		sqlSessionTemplate.delete(namespace+".deleteODetail",o_num);
+	}
+
+
+
+	public List<OrderDetail> getOrderStocks(int r_num) {
+		// TODO Auto-generated method stub
+		List<OrderDetail> odetail = sqlSessionTemplate.selectList(namespace+ ".getOrderStocks",r_num);
+		return odetail;
+	}
+
+
+
+	public List<OrderDetail> getThisOrderDetails(int o_num) {
+		// TODO Auto-generated method stub
+		List<OrderDetail> list = sqlSessionTemplate.selectList(namespace + ".getThisOrder",o_num);
+		return list;
+	}
+
+
+
+	public List<OrderDetail> getDateLists(String checkin, String checkout) {
+		// TODO Auto-generated method stub
+		Search dates = new Search();
+		dates.setCheckin(checkin);
+		dates.setCheckout(checkout);
+		
+		List<OrderDetail> detailList = sqlSessionTemplate.selectList(namespace + ".getDetailList",dates);
+		return detailList;
 	}
 
 	

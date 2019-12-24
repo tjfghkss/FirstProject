@@ -1,9 +1,5 @@
 package order.model;
 
-import java.util.List;
-
-import hotel.model.Hotel;
-
 public class MainOrder {
 	private int o_num;
 	private int m_num ;
@@ -77,7 +73,7 @@ public class MainOrder {
 		this.o_engname = o_engname;
 	}
 	public MainOrder(int o_num, int m_num, String o_orderdate, String o_checkin, String o_checkout,
-			String o_totalpeople, String o_comment, String o_checker, String o_engname, int o_reviewchecker) {
+			String o_totalpeople, String o_comment, String o_checker, String o_engname,int o_reviewchecker) {
 		super();
 		this.o_num = o_num;
 		this.m_num = m_num;
@@ -92,14 +88,12 @@ public class MainOrder {
 	}
 	public MainOrder() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
 		return "MainOrder [o_num=" + o_num + ", m_num=" + m_num + ", o_orderdate=" + o_orderdate + ", o_checkin="
 				+ o_checkin + ", o_checkout=" + o_checkout + ", o_totalpeople=" + o_totalpeople + ", o_comment="
-				+ o_comment + ", o_checker=" + o_checker + ", o_engname=" + o_engname + ", o_reviewchecker="
-				+ o_reviewchecker + "]";
+				+ o_comment + ", o_checker=" + o_checker + ", o_engname=" + o_engname + "]";
 	}
 	
 	
