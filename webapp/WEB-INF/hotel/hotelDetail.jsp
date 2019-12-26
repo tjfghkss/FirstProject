@@ -17,6 +17,24 @@
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+
+<!-- <script type="text/javascript">
+	$(function() {
+		var date = document.getElementsByClassName("date");
+		Date d_date = date.value;
+		
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String to = transFormat.format(d_date);
+		
+		alert(to);
+	
+		}
+	});
+
+
+</script>       -->
+
 <script>
 	$(function() {
 		
@@ -31,28 +49,7 @@
 				$('.hi-1').animate({marginLeft:'-=205px'});
 			});
 			
-			
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 			//******** ADUlt********************************************************************
 			var i = 0;
@@ -1404,8 +1401,6 @@ table {
 				<td>
 					<div>평점 ${rv.c_star }</div>
 					<div>작성내용 ${rv.c_comment }</div>
-					
-					
 					
 					
 				</td>

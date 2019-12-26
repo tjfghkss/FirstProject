@@ -384,8 +384,8 @@
 								</a>
 							</td>
 							<td class="hanmeSecond">	
-								<span class="hname-score">9.5</span>
-								
+								<span class="hname-score">${hotel.h_staravg }</span>
+								 
 							</td>
 						</tr>
 						<tr>
